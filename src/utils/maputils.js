@@ -10,11 +10,13 @@ import {
   defaults as DefaultControls
 } from "ol/control";
 import OSM from 'ol/source/OSM';
+import config from 'react-global-configuration';
 
 export const InitMap = () => {
-  new Map({
+  const {url, proj, center, zoom, target} = config.get("MapConfig")
+  return new Map({
     //  Display the map in the div with the id of map
-    target: "map",
+    target: target,
     controls: DefaultControls().extend([
         new FullScreen(),
         new ZoomSlider(),
@@ -30,16 +32,16 @@ export const InitMap = () => {
     layers: [
       new TileLayer({
         source: new XYZSource({
-          url: "https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-          projection: "EPSG:3857"
+          url: url,
+          projection: proj
         })
       })
     ],
     // Render the tile layers in a map view with a Mercator projection
     view: new View({
-      projection: "EPSG:3857",
-      center: [0, 0],
-      zoom: 2
+      projection: proj,
+      center: center,
+      zoom: zoom
     })
   });
 };

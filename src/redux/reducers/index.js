@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import sampleReducer from './sampleReducer'
+import mapReducer from './mapReducer'
 
 export default combineReducers({
-    data : sampleReducer
+    map : mapReducer
 })

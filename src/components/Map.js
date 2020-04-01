@@ -1,20 +1,20 @@
 import React from "react";
-import { InitMap } from '../utils/maputils'
-
-class OLMapFragment extends React.Component {
+import { connect } from 'react-redux'
+import { MapInit } from '../redux/actions'
+import config from 'react-global-configuration';
+class MapComp extends React.Component {
 
   componentDidMount() {
-    InitMap()
-
+    this.props.MapInit();
   }
-
   render() {
-    const style = {
-      width: "100%",
-      height: "100vh",
-      backgroundColor: "#cccccc"
-    };
-    return <div id="map" style={style}></div>;
+    const {style, target} = config.get("MapConfig")
+    return <div id={target} style={style}></div>;
   }
 }
-export default OLMapFragment;
+const mapStateToProps = (state) => {
+  return {map : state.map}
+}
+
+
+export default connect(mapStateToProps, {MapInit})(MapComp);

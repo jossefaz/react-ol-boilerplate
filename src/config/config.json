@@ -1,0 +1,15 @@
+{
+    "test" : "test",
+    "MapConfig" : {
+        "target" : "map",
+        "url" : "https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "proj" : "EPSG:4326",
+        "center" : [34.911, -56.788],
+        "zoom" : 8,
+        "style" : {
+            "width": "100%",
+            "height": "100vh",
+            "backgroundColor": "#cccccc"
+          }
+    }
+}
