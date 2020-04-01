@@ -1,8 +1,8 @@
 import React from 'react';
-import ComponentSample from "../components/componentSample";
-import ReduxComp from "../components/redux-component";
+import Map from "../components/Map";
+
 const App = () => {
-    return ( <div className="ui container"><ComponentSample /><ReduxComp /></div> );
+    return ( <Map /> );
 }
  
 export default App;
